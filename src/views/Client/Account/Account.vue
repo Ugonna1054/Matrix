@@ -1,8 +1,6 @@
 <template>
   <div class="main-container">
     <Loader :loading="loading" loading-text="please wait..." />
-    <Headernav :johndoe="name" />
-    <Sidenav />
     <div class="dashboard-container">
       <!-- <div class="side-content border"></div> -->
       <div class="main-content">
@@ -79,8 +77,6 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav2.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import { clientService } from "../../../services/ClientServices/client.services";
 import { mapState } from "vuex";
 import Loader from "../../../utils/vue-loader/loader.vue";
@@ -89,8 +85,6 @@ import moment from "moment";
 export default {
   name: "Dashboard",
   components: {
-    Sidenav,
-    Headernav,
     Loader
   },
   data() {
@@ -151,8 +145,8 @@ export default {
         .then(res => {
           this.Transactions = res;
         })
-        .catch(err => {
-          this.$toastr.e(err.message || err, "Failed");
+        .catch(() => {
+          //this.$toastr.e(err.message || err, "Failed");
         })
         .finally(() => {
           this.loading = false;
@@ -165,7 +159,7 @@ export default {
         .getLoan()
         .then(res => {
           this.Loan = res;
-          this.$toastr.s("Fetched Succesfully");
+          //this.$toastr.s("Fetched Succesfully");
         })
         .catch(err => {
           this.$toastr.e(err.message || err, "Failed!");
@@ -179,6 +173,7 @@ export default {
     this.getTransaction();
     this.$store.dispatch("AUTHORISE_USER", this.token);
     this.getLoan();
+    this.$store.dispatch("home");
   }
 };
 </script>

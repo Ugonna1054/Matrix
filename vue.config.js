@@ -7,6 +7,7 @@ module.exports = {
         @import "@/assets/css/_mixins.scss";
         @import "@/assets/css/matrix.scss";
         @import "@/assets/css/responsive.scss";
+        @import "@/assets/css/sidebar.scss";
 
         `
       }

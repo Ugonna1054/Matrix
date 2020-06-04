@@ -1,7 +1,5 @@
 <template>
   <div class="main-container">
-    <Headernav johndoe="Client" />
-    <Sidenav />
     <div class="create-user">
       <div class="user-title mb-3 px-3">Investment Request</div>
 
@@ -77,8 +75,8 @@
 
                       <div class="ro d-flex flex-wrap justify-content-end">
                         <button
-                          @click="$router.push('/Loan/Apply')"
-                          class="btn btn-outline-info mt-3 mt-sm-0"
+                          @click="$router.push('/investment/Apply')"
+                          class="btn btn-outline-secondary mt-3 mt-sm-0"
                         >
                           Proceed to Application
                         </button>
@@ -96,15 +94,11 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav2.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import VueNumeric from "vue-numeric";
 //import { ValidationObserver, ValidationProvider } from "vee-validate";
 export default {
   name: "Apply",
   components: {
-    Sidenav,
-    Headernav,
     VueNumeric
     //ValidationObserver,
     //ValidationProvider

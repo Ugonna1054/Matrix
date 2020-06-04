@@ -1,8 +1,6 @@
 <template>
   <div class="main-container">
     <Loader :loading="loading" loading-text="please wait..." />
-    <Headernav />
-    <Sidenav />
     <div class="create-user">
       <div>
         <b-tabs class="ml-n3" pills no-body :active-nav-item-class="current">
@@ -116,7 +114,7 @@
                       </td>
                       <td class="col-md-2 col-6">Reference</td>
                       <td class="col-md-4 col-6">
-                        {{ truncString(transactions._id) }}
+                        {{ transactions.reference }}
                       </td>
                     </tr>
                   </table>
@@ -290,8 +288,6 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav1.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import Loader from "../../../utils/vue-loader/loader.vue";
 import { adminService } from "../../../services/AdminServices/admin.services";
 import { mapState } from "vuex";
@@ -300,8 +296,6 @@ import moment from "moment";
 export default {
   name: "Details",
   components: {
-    Sidenav,
-    Headernav,
     Loader
   },
   data() {
@@ -331,8 +325,9 @@ export default {
   },
   methods: {
     //format amount
-    formatAmount(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); //this function automatically adds commas to the value where necessary
+    formatAmount(str) {
+      if (str == "" || str == null || str == undefined) return;
+      return str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); //this function automatically adds commas to the value where necessary
     },
     //moment
     moment(date) {

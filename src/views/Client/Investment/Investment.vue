@@ -1,7 +1,5 @@
 <template>
   <div class="main-container">
-    <Headernav johndoe="Client" />
-    <Sidenav />
     <div class="create-user">
       <div class="user-title mb-3 px-3">Investment Request</div>
       <div class="user-title">
@@ -52,13 +50,9 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav2.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 export default {
   name: "Loan",
   components: {
-    Sidenav,
-    Headernav
   }
 };
 </script>

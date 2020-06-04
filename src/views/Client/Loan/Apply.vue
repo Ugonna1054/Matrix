@@ -1,8 +1,6 @@
 <template>
   <div class="main-container">
     <Loader :loading="loading" loading-text="please wait..." />
-    <Headernav johndoe="Client" />
-    <Sidenav />
     <div class="create-user">
       <div class="user-title mb-3 px-3">Loan Application Form</div>
 
@@ -396,7 +394,7 @@
           <b-tab :title-link-class="active1" title="Loan Details">
             <ValidationObserver v-slot="{ passes }">
               <form @submit.prevent="passes(postLoan)">
-                <div class="tab-contents">
+                <div class="tab-content">
                   <div class="form-row first">
                     <div class="col-md-5 mb-3">
                       <ValidationProvider
@@ -1360,8 +1358,6 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav2.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import Loader from "../../../utils/vue-loader/loader.vue";
 import VueNumeric from "vue-numeric";
 import { clientService } from "../../../services/ClientServices/client.services";
@@ -1370,8 +1366,6 @@ import { mapState } from "vuex";
 export default {
   name: "Apply",
   components: {
-    Sidenav,
-    Headernav,
     ValidationObserver,
     ValidationProvider,
     Loader,
@@ -1444,9 +1438,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tab-contents {
-  max-height: 470px;
-  overflow-x: hidden !important;
+.tab-content {
   font-family: Montserrat-Regular;
   margin-top: 0px !important;
   padding: 0px 10px !important;

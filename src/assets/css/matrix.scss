@@ -120,24 +120,27 @@
     }
 }
 
-//Headernav
-.header-nav {
-    .navbar {
-        background: $background-color;
-        .avatar-wrapper {
-            height: 43px;
-            width:43px;
-            border-radius: 10px;
-            //border: 2px solid black;
-            .avatar {
-                height: 43px;
-                border: 2px solid green;
-                border-radius: 30px;
-            }
-        }
+//Brain
+.brain {
+    background: whitesmoke !important;
+    .brain-children {
+       // border: 2px solid green;
+        background: whitesmoke !important;
+        position: absolute;
+        width: 100%;
+        top: 70px;
     }
-}
-
+  }
+  
+  //Headernav
+  .headernav {
+      .logo-wrapper {
+          height: 100px;
+          width: 200px;
+          margin: 10px 30px 0 0;
+      }
+  }
+  
 //Global styles
 
 //main container
@@ -145,6 +148,11 @@
     position: relative;
     font-family: Montserrat-Medium;
 }
+
+.btn-info {
+    background: $background-color;
+    border-color: $background-color;
+  }
 
 //Table
 table {
@@ -173,7 +181,7 @@ table {
 
 //Dashboard 
     .dashboard-container {
-       @include container(600px, auto, hidden);
+      @include container(auto, auto, hidden);
        .main-content {
             .dashboard-title {
                @include title
@@ -227,7 +235,7 @@ table {
 
 //User
 .create-user {
-    @include container (600px, auto, auto);
+    @include container (auto, auto, auto);
     .user-title{
         @include title;
         padding:5px

@@ -37,6 +37,12 @@ const actions = {
         window.console.log(err);
         return false;
       });
+  },
+
+  LOGOUT: async ({ commit }) => {
+    commit("SET_AUTH_TOKEN", "");
+    commit("SET_IS_AUTHENTICATED", false);
+    commit("SET_IS_ADMIN", false);
   }
 };
 

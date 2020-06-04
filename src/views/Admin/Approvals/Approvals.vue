@@ -1,8 +1,6 @@
 <template>
   <div class="main-container">
     <Loader :loading="loading" loading-text="please wait..." />
-    <Headernav />
-    <Sidenav />
     <div class="create-user">
       <div class="">
         <b-tabs class="ml-n3" pills no-body :active-nav-item-class="current">
@@ -103,7 +101,7 @@
                       <td>{{ truncString(transaction._id) }}</td>
                       <td>{{ transaction.account }}</td>
                       <td>&#8358; {{ formatAmount(transaction.amount) }}</td>
-                      <td>
+                      <td >
                         {{ transaction.agent.firstname }}
                         {{ transaction.agent.lastname }}
                         {{ transaction.agent.middlename }}
@@ -188,7 +186,6 @@
                       <td class="text-primary action" @click="Loan(index)">
                         View
                       </td>
-                      <!-- <td class="text-danger  action">Delete</td> -->
                     </tr>
                   </table>
                 </div>
@@ -258,8 +255,6 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav1.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import { clientService } from "../../../services/ClientServices/client.services";
 import { adminService } from "../../../services/AdminServices/admin.services";
 import Loader from "../../../utils/vue-loader/loader.vue";
@@ -268,8 +263,6 @@ import moment from "moment";
 export default {
   name: "Approvals",
   components: {
-    Sidenav,
-    Headernav,
     Loader
   },
   data() {
@@ -298,6 +291,7 @@ export default {
   methods: {
     //format amount
     formatAmount(x) {
+      if (x == null || x == "" || x == undefined) return;
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); //this function automatically adds commas to the value where necessary
     },
     //moment
@@ -306,11 +300,12 @@ export default {
     },
     //truncate string
     truncString(str) {
-      //if (str == null) return;
+      if (str == null || str == "" || str == undefined) return;
       return str.substring(3, 13);
     },
     //truncate string
     truncString1(str) {
+      if (str == null || str == "" || str == undefined) return;
       return str.toString().substring(0, 25);
     },
     Account(index) {
@@ -357,7 +352,9 @@ export default {
           this.Transactions = res;
         })
         .catch(err => {
-          this.$toastr.e(err.message || err, "Failed");
+          //this.$toastr.e(err.message || err, "Failed");
+          window.console.log(err.message);
+          
         })
         .finally(() => {
           this.loading = false;
@@ -373,7 +370,8 @@ export default {
           //this.$toastr.s("loan Fetched Succesfully");
         })
         .catch(err => {
-          this.$toastr.e(err.message || err, "Failed!");
+         // this.$toastr.e(err.message || err, "Failed!");
+         window.console.log(err.message);
         })
         .finally(() => {
           this.loading = false;

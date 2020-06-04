@@ -1,8 +1,6 @@
 <template>
   <div class="main-container">
     <Loader :loading="loading" loading-text="please wait..." />
-    <Headernav />
-    <Sidenav />
     <div class="create-user">
       <div class="user-title mb-5">
         <div class="col-12">
@@ -46,7 +44,7 @@
                           <th>Email</th>
                           <th>Phone Number</th>
                           <th>Wallet Balance</th>
-                          <th>Today Deposit</th>
+                          <!-- <th>Today Deposit</th> -->
                           <th>Total Deposit</th>
                           <th>Account Created</th>
                           <!-- <th>Account Created Target</th> -->
@@ -65,10 +63,10 @@
                             &#8358; {{ formatAmount(agent.wallet.balance) }}
                           </td>
                           <td v-else>0</td>
-                          <td v-if="agent.wallet">
+                          <!-- <td v-if="agent.wallet">
                             &#8358;{{ agent.wallet.todayDeposit }}
                           </td>
-                          <td v-else>0</td>
+                          <td v-else>0</td> -->
                           <td v-if="agent.wallet">
                             &#8358;
                             {{ formatAmount(agent.wallet.totalDeposit) }}
@@ -157,8 +155,6 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav1.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import Loader from "../../../utils/vue-loader/loader.vue";
 //import { adminService } from "../../../services/AdminServices/admin.services";
 import { clientService } from "../../../services/ClientServices/client.services";
@@ -167,8 +163,6 @@ import { mapState } from "vuex";
 export default {
   name: "Dashboard",
   components: {
-    Sidenav,
-    Headernav,
     Loader
   },
   data() {

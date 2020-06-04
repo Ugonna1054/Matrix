@@ -1,8 +1,6 @@
 <template>
   <div class="main-container">
     <Loader :loading="loading" loading-text="please wait..." />
-    <Headernav johndoe="Client" />
-    <Sidenav />
     <div class="create-user">
       <div class="user-title mb-3 px-3">Loan Request</div>
       <div class="user-title">
@@ -60,8 +58,6 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav2.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import Loader from "../../../utils/vue-loader/loader.vue";
 import { clientService } from "../../../services/ClientServices/client.services";
 import moment from "moment";
@@ -69,8 +65,6 @@ import moment from "moment";
 export default {
   name: "Loan",
   components: {
-    Sidenav,
-    Headernav,
     Loader
   },
   data() {
@@ -116,9 +110,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tab-contents {
-  max-height: 470px;
-}
 
 .btn-info {
   background: $background-color;

@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
 import User from "./modules/user/user";
 import Agent from "./modules/agent/agent";
+import Misc from "./modules/misc/misc";
 
 
 Vue.use(Vuex);
@@ -22,7 +23,8 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     User,
-    Agent
+    Agent,
+    Misc
   },
   plugins: [vuexPersist.plugin]
 });

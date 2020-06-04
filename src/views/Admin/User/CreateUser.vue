@@ -1,8 +1,6 @@
 <template>
   <div class="main-container">
     <Loader :loading="loading" loading-text="please wait..." />
-    <Headernav />
-    <Sidenav />
     <div class="create-user">
       <div class="user-title mb-5">
         <div class="col-12">
@@ -56,12 +54,12 @@
                             <div class="div3i col-md-6 mb-3">
                               <ValidationProvider
                                 name="middlename"
-                                rules="required"
+                                rules=""
                                 v-slot="{ errors }"
                               >
                                 <label for="v">
                                   Middle Name
-                                  <span class="text-danger">*</span>
+                                  <span class="text-danger"></span>
                                 </label>
                                 <div class="input-group">
                                   <input
@@ -114,7 +112,7 @@
                             <div class="div3i col-md-6 mb-3">
                               <ValidationProvider
                                 name="phone"
-                                rules="required|min:11"
+                                rules="required|max:11|min:11"
                                 v-slot="{ errors }"
                               >
                                 <label for="v">
@@ -379,8 +377,6 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav1.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import { ValidationObserver, ValidationProvider } from "vee-validate";
 import Loader from "../../../utils/vue-loader/loader.vue";
 import { mapState } from "vuex";
@@ -389,8 +385,6 @@ import { adminService } from "../../../services/AdminServices/admin.services";
 export default {
   name: "Dashboard",
   components: {
-    Sidenav,
-    Headernav,
     ValidationObserver,
     ValidationProvider,
     Loader
@@ -461,6 +455,8 @@ export default {
     onFileChange1(e) {
       let files = e.target.files || e.dataTransfer.files;
       this.idCard_ = files[0];
+      window.console.log(files[0]);
+
       if (!files.length) return;
       this.createImage1(files[0]);
     },
@@ -496,9 +492,5 @@ export default {
 }
 .img-fluid {
   max-height: 130px !important;
-}
-.btn-info {
-  background: $background-color;
-  border-color: $background-color;
 }
 </style>

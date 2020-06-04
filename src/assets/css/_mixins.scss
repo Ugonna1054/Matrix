@@ -40,19 +40,15 @@
 
 //Dashboard
 @mixin container  ($max-height, $overflow-y, $overflow-x) {
-    width: 80%;
+    width: 100%;
     margin:0px auto;
     position: relative;
-    padding: 25px;
-    padding-right: 0px;
-    //border: 2px solid green;
+    padding: 0px 20px;
+    //border: 2px solid blue;
     max-height: $max-height;
     overflow-y:$overflow-y;
     overflow-x: $overflow-x;
     z-index: 1;
-    top:50px;
-    margin-top:-100vh;
-    margin-right: 2vw;
 }
 
 @mixin title {

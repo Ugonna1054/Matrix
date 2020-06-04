@@ -1,7 +1,5 @@
 <template>
   <div class="main-container">
-    <Headernav johndoe="Client" />
-    <Sidenav />
     <div class="create-user">
       <div class="user-title mb-3 px-3">Loan Request</div>
 
@@ -118,18 +116,12 @@
 </template>
 
 <script>
-import Sidenav from "../../../components/SideNav/SideNav2.vue";
-import Headernav from "../../../components/HeaderNav/HeaderNav1.vue";
 import VueNumeric from "vue-numeric";
-//import { ValidationObserver, ValidationProvider } from "vee-validate";
+
 export default {
   name: "Apply",
   components: {
-    Sidenav,
-    Headernav,
     VueNumeric
-    //ValidationObserver,
-    //ValidationProvider
   },
   data() {
     return {
@@ -211,7 +203,6 @@ export default {
 
 <style lang="scss" scoped>
 .tab-content {
-  max-height: 470px;
   font-family: Montserrat-Regular;
 }
 </style>

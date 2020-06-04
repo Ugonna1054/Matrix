@@ -1,7 +1,7 @@
 @media only screen and (min-width: 320px) and (max-width: 576px) {
    //Dashboard
    .dashboard-container {
-    @include container (580px, auto, auto);
+    @include container (auto, auto, auto);
     top: 10px;
   }
   
@@ -24,7 +24,7 @@
       }
        //Dashboard
    .dashboard-container {
-    @include container (580px, auto, auto);
+    @include container (auto, auto, auto);
     top: 10px;
   }
   //User Management
@@ -42,13 +42,13 @@
 
     //Dashboard
    .dashboard-container {
-    @include container (580px, auto, auto);
+    @include container (auto, auto, auto);
     top: 10px;
   }
 
       //User Management
     .create-user {
-      @include container (580px, hidden, hidden);
+      @include container (auto, hidden, hidden);
       padding:20px 10px;
       top:10px;
       .tab-contents {
@@ -63,14 +63,14 @@
       }
        //Dashboard
    .dashboard-container {
-    @include container (580px, auto, auto);
+    @include container (auto, auto, auto);
     top: 10px;
   }
 
 
        //User Management
     .create-user {
-      @include container (580px, hidden, hidden);
+      @include container (auto, hidden, hidden);
       padding:20px 10px;
       top:10px;
       .tab-contents {
@@ -89,7 +89,7 @@
 
     //Dashboard
     .dashboard-container {
-      @include container (720px, auto, auto);
+      @include container (auto, auto, auto);
       padding:5px 20px;
     }
 

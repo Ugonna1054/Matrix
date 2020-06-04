@@ -23,7 +23,7 @@
                     v-slot="{ errors }"
                   >
                     <label for="email" class="login-label"
-                      >Email or Account</label
+                      >Email or Phone</label
                     >
                     <div class="input-group">
                       <div class="input-group-append">
@@ -35,7 +35,7 @@
                         name="email"
                         id="email"
                         v-model="email"
-                        placeholder="Email or Account Number"
+                        placeholder="Email or Phone Number"
                         type="text"
                         class="form-control"
                       />
@@ -84,8 +84,10 @@
               <p class="h6">Forgot password?</p>
               <p>
                 click
-                <span class="here" @click="$router.push('Login')">here</span> to
-                reset
+                <span class="here" @click="$router.push('/ResetPassword/email')"
+                  >here</span
+                >
+                to reset
               </p>
             </div>
             <div class="line mb-3"></div>

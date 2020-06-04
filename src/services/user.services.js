@@ -1,4 +1,5 @@
 import { ApiService } from "./api.services";
+import store from "../store/store"
 
 const userService = {
   //Login 
@@ -27,6 +28,7 @@ const userService = {
       })
         .then(res => {
           resolve(res.data.message);
+          store.dispatch("LOGOUT");
         })
         .catch(err => {
           reject(err.response.data);
